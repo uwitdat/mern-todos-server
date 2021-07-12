@@ -1,11 +1,11 @@
 import express from 'express'
-import dotenv from 'dotenv'
+require('dotenv').config();
 import mongoose from 'mongoose'
 import cors from 'cors'
 import todosRoutes from './routes/todos.js'
 const app = express()
 
-dotenv.config()
+
 
 app.use(express.json({ extended: true }))
 app.use(express.urlencoded({ extended: true }))
@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
 
 
 const PORT = process.env.PORT || 5000
-mongoose.connect(process.env.db,
+mongoose.connect(process.env.DB,
     {
         useNewUrlParser: true,
         useUnifiedTopology: true
