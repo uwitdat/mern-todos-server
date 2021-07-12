@@ -1,5 +1,5 @@
 import express from 'express'
-require('dotenv').config();
+import dotenv from 'dotenv'
 import mongoose from 'mongoose'
 import cors from 'cors'
 import todosRoutes from './routes/todos.js'
@@ -9,6 +9,8 @@ const app = express()
 
 app.use(express.json({ extended: true }))
 app.use(express.urlencoded({ extended: true }))
+
+dotenv.config()
 
 app.use(cors())
 app.use('/todos', todosRoutes)
